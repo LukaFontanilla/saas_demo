@@ -48,7 +48,7 @@ view: event_sessions {
     type: time
     convert_tz: no
     timeframes: [time, date, week, month]
-    sql: timestamp(DATETIME_SUB(${TABLE}.session_start, INTERVAL (DATE_DIFF(date '2021-01-03', current_date(), DAY)) DAY))  ;;
+    sql: timestamp(DATETIME_SUB(${TABLE}.session_start, INTERVAL (DATE_DIFF(date '2020-05-03', current_date(), DAY)) DAY))  ;;
   }
 
   dimension: idle_time {
@@ -77,7 +77,7 @@ view: event_sessions {
     type: time
     convert_tz: no
     timeframes: [time, date, week, month]
-    sql: case when timestamp(DATETIME_SUB(${TABLE}.next_session_start, INTERVAL (DATE_DIFF(date '2021-01-03', current_date(), DAY)) DAY))  > current_date() then null else timestamp(DATETIME_SUB(${TABLE}.next_session_start, INTERVAL (DATE_DIFF(date '2021-01-03', current_date(), DAY)) DAY)) end;;
+    sql: case when timestamp(DATETIME_SUB(${TABLE}.next_session_start, INTERVAL (DATE_DIFF(date '2020-05-03', current_date(), DAY)) DAY))  > current_date() then null else timestamp(DATETIME_SUB(${TABLE}.next_session_start, INTERVAL (DATE_DIFF(date '2020-05-03', current_date(), DAY)) DAY)) end;;
   }
 
 

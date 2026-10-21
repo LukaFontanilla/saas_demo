@@ -4,7 +4,7 @@ view: daily_client_sessions {
     # datagroup_trigger: event_trigger
     # partition_keys: ["event_date"]
     sql: SELECT
-          date(timestamp(DATETIME_SUB(session_start, INTERVAL (DATE_DIFF(date '2021-01-03', current_date(), DAY)) DAY))) as event_date,
+          date(timestamp(DATETIME_SUB(session_start, INTERVAL (DATE_DIFF(date '2020-05-03', current_date(), DAY)) DAY))) as event_date,
           client_id as client_id,
           COUNT(DISTINCT unique_session_id ) AS event_sessions_count,
           avg((select timestamp_diff(max(timestamp(DATETIME_SUB(timestamp, INTERVAL (DATE_DIFF(date '2020-05-03', current_date(), DAY)) DAY))),min(timestamp(DATETIME_SUB(timestamp, INTERVAL (DATE_DIFF(date '2020-05-03', current_date(), DAY)) DAY))), MINUTE)
